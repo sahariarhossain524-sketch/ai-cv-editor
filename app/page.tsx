@@ -72,7 +72,7 @@ export default function Home() {
           
           {/* Editor Area */}
           <div className="w-[45%] min-w-[400px] h-full flex flex-col border-r border-[var(--color-brand-border)] no-print relative shrink-0">
-            <MarkdownEditor markdown={markdown} setMarkdown={setMarkdown} />
+            <MarkdownEditor />
           </div>
           
           {/* Preview Area */}
