@@ -83,7 +83,7 @@ export default function Home() {
               transition={{ duration: 0.4, ease: "easeOut" }}
               className="print:w-full print:h-auto w-full flex justify-center"
             >
-              <LivePreview markdown={markdown} ref={componentRef} />
+              <LivePreview ref={componentRef} />
             </motion.div>
             <ZoomControls />
           </div>
