@@ -1,36 +1,32 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 📄 ResuAI Pro - AI-Powered Resume & Cover Letter Builder
 
-## Getting Started
+An advanced, ATS-friendly Markdown resume and cover letter builder integrated with Google Gemini 2.5 API to help professionals craft highly impactful job applications in seconds. Features a split-pane live Markdown preview and intelligent, context-aware AI rewrite capabilities.
 
-First, run the development server:
+### 🔴 [Click Here to View Live Project](https://ai-cv-editor-1zqp-6d1m0zffw-sahariar-hossain.vercel.app/)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+![ResuAI Pro Preview](https://images.unsplash.com/photo-1586281380349-632531db7ed4?auto=format&fit=crop&w=1600&q=80)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## ✨ Key Features
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Context-Aware AI Assistant**: Integrated Google Gemini 2.5 AI automatically detects if you're editing a Resume or a Cover Letter and optimizes the content with strong action verbs and professional formatting.
+- **Dual-Document Tabs**: Easily toggle between crafting your Resume and a tailored Cover Letter within the same workspace.
+- **Live Markdown Rendering**: A dual-pane architecture where Markdown is instantly parsed and rendered into a beautiful, ATS-optimized print layout.
+- **Client-Side PDF Generation**: Direct-to-PDF export mechanism utilizing `html2pdf.js` for perfect pixel-to-print fidelity without server bottlenecks.
+- **Premium Glassmorphic UI**: Designed with Tailwind CSS and Framer Motion for smooth micro-animations, ensuring a high-end SaaS feel.
+- **Global State Management**: Utilizes Zustand for lightning-fast, prop-drilling-free state updates across editor and AI panels.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🛠️ Technologies Used
 
-## Learn More
+- [Next.js 14](https://nextjs.org/) (App Router)
+- [React](https://reactjs.org/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [Google Gemini API](https://ai.google.dev/) (AI Integration)
+- [Zustand](https://docs.pmnd.rs/zustand/getting-started/introduction) (State Management)
+- [Framer Motion](https://www.framer.com/motion/) (Animations)
+- [React Markdown](https://remarkjs.github.io/react-markdown/) (Parsing)
+- [html2pdf.js](https://ekoopmans.github.io/html2pdf.js/) (PDF Export)
 
-To learn more about Next.js, take a look at the following resources:
+## 👨‍💻 Author
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Designed and developed to demonstrate professional AI engineering and full-stack capabilities, focusing on real-world utility, robust AI integration, and pixel-perfect UX.
