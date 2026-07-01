@@ -23,41 +23,10 @@ export default function Home() {
     documentTitle: "ResuAI_Export",
   });
 
-  const handleDownloadPDF = async () => {
-    if (typeof window === "undefined" || !componentRef.current || isDownloading) return;
-    setIsDownloading(true);
-    
-    try {
-      // Dynamic import to prevent SSR issues
-      const html2pdf = (await import('html2pdf.js')).default;
-      
-      const opt = {
-        margin:       0,
-        filename:     'Resume.pdf',
-        image:        { type: 'jpeg' as const, quality: 1 },
-        html2canvas:  { scale: 2, useCORS: true, logging: false },
-        jsPDF:        { unit: 'mm' as const, format: 'a4' as const, orientation: 'portrait' as const }
-      };
-      
-      // Generate PDF as a blob
-      const pdfBlob = await html2pdf().set(opt).from(componentRef.current).output('blob');
-      
-      // Trigger native browser download behavior
-      const url = URL.createObjectURL(pdfBlob);
-      const link = document.createElement('a');
-      link.href = url;
-      link.download = 'Resume.pdf';
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-      URL.revokeObjectURL(url);
-      
-    } catch (error: any) {
-      console.error("PDF Export Error:", error);
-      alert("PDF Download Error: Please use the 'Print' button as a fallback.");
-    } finally {
-      setIsDownloading(false);
-    }
+  const handleDownloadPDF = () => {
+    // We use the browser's native print engine instead of html2pdf 
+    // to ensure the PDF has clickable links and selectable text (ATS-friendly).
+    handlePrint();
   };
 
   return (
