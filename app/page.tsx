@@ -14,13 +14,20 @@ import { motion } from "framer-motion";
 import { useReactToPrint } from "react-to-print";
 
 export default function Home() {
-  const { markdown, setMarkdown } = useStore();
+  const { markdown, coverLetterMarkdown, activeDocument, setMarkdown } = useStore();
   const componentRef = useRef<HTMLDivElement>(null);
   const [isDownloading, setIsDownloading] = useState(false);
 
+  // Generate a dynamic document title based on the content
+  const currentContent = activeDocument === 'resume' ? markdown : coverLetterMarkdown;
+  const match = currentContent.match(/^#\s+(.+)$/m);
+  const name = match ? match[1].trim().replace(/\s+/g, '_') : 'Document';
+  const docType = activeDocument === 'resume' ? 'Resume' : 'Cover_Letter';
+  const dynamicTitle = `${name}_${docType}`;
+
   const handlePrint = useReactToPrint({
     contentRef: componentRef,
-    documentTitle: "ResuAI_Export",
+    documentTitle: dynamicTitle,
   });
 
   const handleDownloadPDF = () => {
