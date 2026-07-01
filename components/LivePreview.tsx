@@ -1,5 +1,6 @@
 import React, { forwardRef } from 'react';
 import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 import { useStore } from '@/store/useStore';
 
 const LivePreview = forwardRef<HTMLDivElement>((props, ref) => {
@@ -25,7 +26,7 @@ const LivePreview = forwardRef<HTMLDivElement>((props, ref) => {
           prose-ul:my-1 prose-ul:pl-4 prose-li:my-0 prose-li:text-[11.5px] prose-li:leading-snug prose-li:text-[#262626]
           prose-a:text-[#4F7CFF] prose-a:no-underline hover:prose-a:underline
           prose-strong:font-semibold prose-strong:text-[#000000]">
-          <ReactMarkdown>{content}</ReactMarkdown>
+          <ReactMarkdown remarkPlugins={[remarkGfm]}>{content}</ReactMarkdown>
         </div>
       </div>
     </div>
