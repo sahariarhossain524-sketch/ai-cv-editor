@@ -10,7 +10,7 @@ export default function Topbar({ onExport, onDownload, isDownloading }: { onExpo
           className="flex items-center gap-2 text-[var(--color-brand-text)]"
         >
           <Sparkles className="text-[var(--color-brand-primary)]" size={20} />
-          <span className="font-bold tracking-tight">ResuAI Pro</span>
+          <span className="font-bold tracking-tight">DocuAgent Pro</span>
         </motion.div>
         <div className="h-4 w-px bg-[var(--color-brand-border)] mx-2"></div>
         <div className="flex items-center gap-2 text-[13px] text-[var(--color-brand-muted)]">

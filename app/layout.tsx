@@ -18,8 +18,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "ResuAI | Premium Resume Builder",
-  description: "World-class AI Resume Builder",
+  title: "DocuAgent Pro | AI Document Automation",
+  description: "Generate professional structured documents using AI",
 };
 
 export default function RootLayout({
