@@ -2,7 +2,6 @@
 
 > **DocuAgent Pro** is a high-performance, client-side AI operational tool designed to act as an internal agent for business operations and client success teams. It generates structured, highly professional PDF documents (Resumes & Cover Letters) in seconds, utilizing advanced Generative AI and modern web architecture.
 
-![DocuAgent Pro](https://via.placeholder.com/1200x600/0a0a0a/ffffff?text=DocuAgent+Pro)
 
 ## Architecture & Engineering Philosophy
 
