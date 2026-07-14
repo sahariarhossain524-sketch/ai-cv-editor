@@ -1,10 +1,10 @@
-# DocuAgent Pro 🤖📄
+# DocuAgent Pro
 
 > **DocuAgent Pro** is a high-performance, client-side AI operational tool designed to act as an internal agent for business operations and client success teams. It generates structured, highly professional PDF documents (Resumes & Cover Letters) in seconds, utilizing advanced Generative AI and modern web architecture.
 
 ![DocuAgent Pro](https://via.placeholder.com/1200x600/0a0a0a/ffffff?text=DocuAgent+Pro)
 
-## 🚀 Architecture & Engineering Philosophy
+## Architecture & Engineering Philosophy
 
 This project was built with a core philosophy: **Treat internal business teams as customers.** Internal tools shouldn't be clunky admin panels—they deserve the same premium UX, state management, and reliability as top-tier consumer-facing SaaS products.
 
@@ -16,7 +16,7 @@ This project was built with a core philosophy: **Treat internal business teams a
 - **Styling:** Tailwind CSS + Framer Motion (Glassmorphism & Micro-interactions)
 - **PDF Generation:** jsPDF + Custom Canvas Rendering
 
-## 🧠 Advanced AI Implementation
+## Advanced AI Implementation
 
 Unlike traditional wrapper applications, DocuAgent Pro abstracts complex AI interactions into isolated custom React Hooks (`useAIAssistant`), ensuring a clean separation of concerns.
 
@@ -24,7 +24,7 @@ Unlike traditional wrapper applications, DocuAgent Pro abstracts complex AI inte
 - **Graceful Error Handling:** Implemented robust try/catch boundaries with user-facing fallback UI states, preventing silent failures during network timeouts or API rate limits.
 - **State Syncing:** Real-time synchronization between the AI's response stream and the markdown editor, managed flawlessly by Zustand without unnecessary component re-renders.
 
-## 🛠️ Setup & Installation
+## Setup & Installation
 
 1. Clone the repository
 2. Install dependencies: `npm install`
@@ -34,7 +34,7 @@ Unlike traditional wrapper applications, DocuAgent Pro abstracts complex AI inte
    ```
 4. Run the development server: `npm run dev`
 
-## 👨‍💻 Developed By
+## Developed By
 
 **Sahariar Hossain**  
 *AI Product Engineer & Full-Stack Developer*  
