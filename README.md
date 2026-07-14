@@ -1,32 +1,41 @@
-# 📄 ResuAI Pro - AI-Powered Resume & Cover Letter Builder
+# DocuAgent Pro 🤖📄
 
-An advanced, ATS-friendly Markdown resume and cover letter builder integrated with Google Gemini 2.5 API to help professionals craft highly impactful job applications in seconds. Features a split-pane live Markdown preview and intelligent, context-aware AI rewrite capabilities.
+> **DocuAgent Pro** is a high-performance, client-side AI operational tool designed to act as an internal agent for business operations and client success teams. It generates structured, highly professional PDF documents (Resumes & Cover Letters) in seconds, utilizing advanced Generative AI and modern web architecture.
 
-### 🔴 [Click Here to View Live Project](https://ai-cv-editor-1zqp-6d1m0zffw-sahariar-hossain.vercel.app/)
+![DocuAgent Pro](https://via.placeholder.com/1200x600/0a0a0a/ffffff?text=DocuAgent+Pro)
 
-![ResuAI Pro Preview](https://images.unsplash.com/photo-1586281380349-632531db7ed4?auto=format&fit=crop&w=1600&q=80)
+## 🚀 Architecture & Engineering Philosophy
 
-## ✨ Key Features
+This project was built with a core philosophy: **Treat internal business teams as customers.** Internal tools shouldn't be clunky admin panels—they deserve the same premium UX, state management, and reliability as top-tier consumer-facing SaaS products.
 
-- **Context-Aware AI Assistant**: Integrated Google Gemini 2.5 AI automatically detects if you're editing a Resume or a Cover Letter and optimizes the content with strong action verbs and professional formatting.
-- **Dual-Document Tabs**: Easily toggle between crafting your Resume and a tailored Cover Letter within the same workspace.
-- **Live Markdown Rendering**: A dual-pane architecture where Markdown is instantly parsed and rendered into a beautiful, ATS-optimized print layout.
-- **Client-Side PDF Generation**: Direct-to-PDF export mechanism utilizing `html2pdf.js` for perfect pixel-to-print fidelity without server bottlenecks.
-- **Premium Glassmorphic UI**: Designed with Tailwind CSS and Framer Motion for smooth micro-animations, ensuring a high-end SaaS feel.
-- **Global State Management**: Utilizes Zustand for lightning-fast, prop-drilling-free state updates across editor and AI panels.
+### The Stack
+- **Framework:** Next.js (App Router)
+- **Language:** TypeScript (Strict Mode)
+- **State Management:** Zustand (Custom global state architecture for real-time AI streaming and complex form inputs)
+- **AI Integration:** Google Gemini 2.5 Flash API (via custom hooks & robust error boundaries)
+- **Styling:** Tailwind CSS + Framer Motion (Glassmorphism & Micro-interactions)
+- **PDF Generation:** jsPDF + Custom Canvas Rendering
 
-## 🛠️ Technologies Used
+## 🧠 Advanced AI Implementation
 
-- [Next.js 14](https://nextjs.org/) (App Router)
-- [React](https://reactjs.org/)
-- [TypeScript](https://www.typescriptlang.org/)
-- [Tailwind CSS](https://tailwindcss.com/)
-- [Google Gemini API](https://ai.google.dev/) (AI Integration)
-- [Zustand](https://docs.pmnd.rs/zustand/getting-started/introduction) (State Management)
-- [Framer Motion](https://www.framer.com/motion/) (Animations)
-- [React Markdown](https://remarkjs.github.io/react-markdown/) (Parsing)
-- [html2pdf.js](https://ekoopmans.github.io/html2pdf.js/) (PDF Export)
+Unlike traditional wrapper applications, DocuAgent Pro abstracts complex AI interactions into isolated custom React Hooks (`useAIAssistant`), ensuring a clean separation of concerns.
 
-## 👨‍💻 Author
+- **Context-Aware Prompt Engineering:** The system dynamically constructs prompts based on the currently active document (Resume vs. Cover Letter) to ensure the LLM strictly adheres to proven copywriting frameworks (AIDA, PAS).
+- **Graceful Error Handling:** Implemented robust try/catch boundaries with user-facing fallback UI states, preventing silent failures during network timeouts or API rate limits.
+- **State Syncing:** Real-time synchronization between the AI's response stream and the markdown editor, managed flawlessly by Zustand without unnecessary component re-renders.
 
-Designed and developed to demonstrate professional AI engineering and full-stack capabilities, focusing on real-world utility, robust AI integration, and pixel-perfect UX.
+## 🛠️ Setup & Installation
+
+1. Clone the repository
+2. Install dependencies: `npm install`
+3. Create a `.env.local` file and add your Gemini API Key:
+   ```env
+   GEMINI_API_KEY=your_api_key_here
+   ```
+4. Run the development server: `npm run dev`
+
+## 👨‍💻 Developed By
+
+**Sahariar Hossain**  
+*AI Product Engineer & Full-Stack Developer*  
+Specializing in AI-native internal tools, intelligent automation, and LLM-powered operational software.

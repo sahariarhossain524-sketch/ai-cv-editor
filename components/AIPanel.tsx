@@ -1,40 +1,11 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useStore } from '@/store/useStore';
-import { Bot, Sparkles, X, Target, Zap, Loader2 } from 'lucide-react';
-import { useState } from 'react';
+import { Bot, Sparkles, X, Target, Zap, Loader2, AlertCircle } from 'lucide-react';
+import { useAIAssistant } from '@/hooks/useAIAssistant';
 
 export default function AIPanel() {
-  const { isAiPanelOpen, toggleAiPanel, markdown, setMarkdown, coverLetterMarkdown, setCoverLetterMarkdown, activeDocument } = useStore();
-  const [isImproving, setIsImproving] = useState(false);
-
-  const handleImprove = async () => {
-    setIsImproving(true);
-    const contentToImprove = activeDocument === 'resume' ? markdown : coverLetterMarkdown;
-    
-    try {
-      const res = await fetch('/api/ai', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ markdown: contentToImprove, action: 'improve', documentType: activeDocument })
-      });
-      const data = await res.json();
-      
-      if (res.ok && data.text) {
-        if (activeDocument === 'resume') {
-          setMarkdown(data.text);
-        } else {
-          setCoverLetterMarkdown(data.text);
-        }
-      } else {
-        alert("AI Error: " + (data.error || "Failed to process request."));
-      }
-    } catch (e: any) {
-      console.error(e);
-      alert("Network Error: Could not reach the AI server.");
-    } finally {
-      setIsImproving(false);
-    }
-  };
+  const { isAiPanelOpen, toggleAiPanel } = useStore();
+  const { isProcessing, error, improveContent, fixGrammar } = useAIAssistant();
 
   return (
     <AnimatePresence>
@@ -76,21 +47,32 @@ export default function AIPanel() {
             <div className="space-y-3">
               <span className="text-[12px] font-bold text-[var(--color-brand-muted)] uppercase tracking-wider">Quick Actions</span>
               
+              {error && (
+                <div className="bg-red-500/10 border border-red-500/20 text-red-400 p-3 rounded-xl flex items-start gap-2 text-[12px] leading-tight">
+                  <AlertCircle size={14} className="shrink-0 mt-0.5" />
+                  <span>{error}</span>
+                </div>
+              )}
+
               <button 
-                onClick={handleImprove}
-                disabled={isImproving}
+                onClick={improveContent}
+                disabled={isProcessing}
                 className="w-full btn-glow bg-[var(--color-brand-card)] border border-[var(--color-brand-border)] p-3 rounded-xl flex items-center gap-3 hover:bg-[var(--color-brand-bg)] transition-all group disabled:opacity-50"
               >
                 <div className="w-8 h-8 rounded-lg bg-[var(--color-brand-primary)]/20 flex items-center justify-center text-[var(--color-brand-primary)]">
-                  {isImproving ? <Loader2 size={16} className="animate-spin" /> : <Sparkles size={16} />}
+                  {isProcessing ? <Loader2 size={16} className="animate-spin" /> : <Sparkles size={16} />}
                 </div>
                 <div className="flex flex-col items-start">
-                  <span className="text-[13px] font-bold text-[var(--color-brand-text)] group-hover:text-[var(--color-brand-primary)] transition-colors">Improve Resume</span>
+                  <span className="text-[13px] font-bold text-[var(--color-brand-text)] group-hover:text-[var(--color-brand-primary)] transition-colors">Improve Content</span>
                   <span className="text-[11px] text-[var(--color-brand-muted)]">AI will rewrite for impact</span>
                 </div>
               </button>
 
-              <button className="w-full bg-[var(--color-brand-card)] border border-[var(--color-brand-border)] p-3 rounded-xl flex items-center gap-3 hover:bg-[var(--color-brand-bg)] transition-all group">
+              <button 
+                onClick={fixGrammar}
+                disabled={isProcessing}
+                className="w-full bg-[var(--color-brand-card)] border border-[var(--color-brand-border)] p-3 rounded-xl flex items-center gap-3 hover:bg-[var(--color-brand-bg)] transition-all group disabled:opacity-50"
+              >
                 <div className="w-8 h-8 rounded-lg bg-[var(--color-brand-accent)]/20 flex items-center justify-center text-[var(--color-brand-accent)]">
                   <Zap size={16} />
                 </div>
